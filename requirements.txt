@@ -1,0 +1,5 @@
+Adafruit-Blinka
+adafruit-circuitpython-busdevice
+adafruit-circuitpython-register
+adafruit-circuitpython-pca9685
+adafruit-circuitpython-motor
