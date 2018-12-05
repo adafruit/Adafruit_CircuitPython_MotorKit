@@ -9,8 +9,8 @@ Introduction
     :target: https://discord.gg/nBQh6qu
     :alt: Discord
 
-.. image:: https://travis-ci.org/adafruit/Adafruit_CircuitPython_MotorKit.svg?branch=master
-    :target: https://travis-ci.org/adafruit/Adafruit_CircuitPython_MotorKit
+.. image:: https://travis-ci.com/adafruit/Adafruit_CircuitPython_MotorKit.svg?branch=master
+    :target: https://travis-ci.com/adafruit/Adafruit_CircuitPython_MotorKit
     :alt: Build Status
 
 CircuitPython helper library for the DC & Stepper Motor FeatherWing, Shield and Pi Hat kits.
