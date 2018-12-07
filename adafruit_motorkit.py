@@ -65,7 +65,7 @@ class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
        Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi."""
-    def __init__(self):
+    def __init__(self, address=0x60):
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
@@ -73,7 +73,7 @@ class MotorKit:
         self._stepper1 = None
         self._stepper2 = None
         i2c = busio.I2C(board.SCL, board.SDA)
-        self._pca = PCA9685(i2c, address=0x60)
+        self._pca = PCA9685(i2c, address=address)
         self._pca.frequency = 1600
 
     # We can save memory usage (~300 bytes) by deduplicating the construction of the objects for
