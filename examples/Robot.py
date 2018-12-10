@@ -16,13 +16,10 @@ from adafruit_motorkit import MotorKit
 kit = MotorKit()
 
 class Robot(object):
-    def __init__(self, addr=0x60, left_id=1, right_id=2, left_trim=0, right_trim=0,
+    def __init__(self, left_trim=0, right_trim=0,
                  stop_at_exit=True):
         """Create an instance of the robot.  Can specify the following optional
-        parameters:
-         - addr: The I2C address of the motor HAT, default is 0x60.
-         - left_id: The ID of the left motor, default is 1.
-         - right_id: The ID of the right motor, default is 2.
+        parameter
          - left_trim: Amount to offset the speed of the left motor, can be positive
                       or negative and use useful for matching the speed of both
                       motors.  Default is 0.
@@ -72,8 +69,7 @@ class Robot(object):
             self.stop()
 
     def steer(self, speed, direction):
-        """Move forward at the specified speed (0- 1).  Direction is +- 1. Full left is -1, Full right is +1.
-        """
+        # Move forward at the specified speed (0- 1).  Direction is +- 1. Full left is -1, Full right is +1
         if (speed + direction/2) > 1:
             speed = speed - direction/2 # calibrate so total motor output never goes above 1
         left = speed + direction/2
