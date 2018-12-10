@@ -50,7 +50,7 @@ class Robot(object):
         kit.motor2.throttle = speed
 
     @static.method
-    def stop(self):
+    def stop():
         """Stop all movement."""
         kit.motor1.throttle = 0
         kit.motor2.throttle = 0
