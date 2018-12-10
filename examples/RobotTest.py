@@ -1,5 +1,5 @@
 # Simple two DC motor robot class usage example.
-# Author: Tony DiCola
+# Author: Tony DiCola, Chris Anderron
 # License: MIT License https://opensource.org/licenses/MIT
 import time
 
@@ -23,16 +23,13 @@ RIGHT_TRIM  = 0
 
 
 # Create an instance of the robot with the specified trim values.
-# Not shown are other optional parameters:
-#  - addr: The I2C address of the motor HAT, default is 0x60.
-#  - left_id: The ID of the left motor, default is 1.
-#  - right_id: The ID of the right motor, default is 2.
+
 robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 
 # Now move the robot around!
 # Each call below takes two parameters:
-#  - speed: The speed of the movement, a value from 0-255.  The higher the value
-#           the faster the movement.  You need to start with a value around 100
+#  - speed: The speed of the movement, a value from -1-1.  The higher the value
+#           the faster the movement.  You need to start with a value around 10
 #           to get enough torque to move the robot.
 #  - time (seconds):  Amount of time to perform the movement.  After moving for
 #                     this amount of seconds the robot will stop.  This parameter
