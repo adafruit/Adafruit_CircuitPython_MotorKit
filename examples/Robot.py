@@ -16,8 +16,7 @@ from adafruit_motorkit import MotorKit
 kit = MotorKit()
 
 class Robot(object):
-    def __init__(self, left_trim=0, right_trim=0,
-                 stop_at_exit=True):
+    def __init__(self, left_trim=0, right_trim=0, stop_at_exit=True):
         """Create an instance of the robot.  Can specify the following optional
         parameter
          - left_trim: Amount to offset the speed of the left motor, can be positive

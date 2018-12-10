@@ -39,7 +39,9 @@ robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 #                     is optional and if not specified the robot will start moving
 #                     forever.
 
+robot.left(0.5,1)
 robot.right(0.5,1)
+robot.steer(0.5,0.2)
 time.sleep(3)
 robot.stop()      # Stop the robot from moving.
 
