@@ -49,7 +49,7 @@ class Robot(object):
         speed = max(-1, min(1, speed))  # Constrain speed to 0-255 after trimming.
         kit.motor2.throttle = speed
 
-    @static.method
+    @staticmethod
     def stop():
         """Stop all movement."""
         kit.motor1.throttle = 0
