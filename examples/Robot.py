@@ -49,6 +49,7 @@ class Robot(object):
         speed = max(-1, min(1, speed))  # Constrain speed to 0-255 after trimming.
         kit.motor2.throttle = speed
 
+    @static.method
     def stop(self):
         """Stop all movement."""
         kit.motor1.throttle = 0
@@ -68,7 +69,8 @@ class Robot(object):
             self.stop()
 
     def steer(self, speed, direction):
-        # Move forward at the specified speed (0- 1).  Direction is +- 1. Full left is -1, Full right is +1
+        # Move forward at the specified speed (0- 1).  Direction is +- 1.
+        # Full left is -1, Full right is +1
         if (speed + direction/2) > 1:
             speed = speed - direction/2 # calibrate so total motor output never goes above 1
         left = speed + direction/2
