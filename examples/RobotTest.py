@@ -14,7 +14,7 @@ import Robot
 # motor spins faster than the other motor.  To determine the trim values move the
 # robot forward slowly (around 100 speed) and watch if it veers to the left or
 # right.  If it veers left then the _right_ motor is spinning faster so try
-# setting RIGHT_TRIM to a small negative value, like -5, to slow down the right
+# setting RIGHT_TRIM to a small negative value, like -0.05, to slow down the right
 # motor.  Likewise if it veers right then adjust the _left_ motor trim to a small
 # negative value.  Increase or decrease the trim value until the bot moves
 # straight forward/backward.
@@ -28,8 +28,8 @@ robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 
 # Now move the robot around!
 # Each call below takes two parameters:
-#  - speed: The speed of the movement, a value from -1-1.  The higher the value
-#           the faster the movement.  You need to start with a value around 10
+#  - speed: The speed of the movement, a value from -1.0 to +1.0.  The higher the value
+#           the faster the movement.  You need to start with a value around 0.10
 #           to get enough torque to move the robot.
 #  - time (seconds):  Amount of time to perform the movement.  After moving for
 #                     this amount of seconds the robot will stop.  This parameter
