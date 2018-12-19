@@ -24,7 +24,7 @@
 `adafruit_motorkit`
 ====================================================
 
-.. CircuitPython helper library for DC & Stepper Motor FeatherWing, Shield, and Pi Hat kits.
+CircuitPython helper library for DC & Stepper Motor FeatherWing, Shield, and Pi Hat kits.
 
 * Author(s): Scott Shawcroft, Kattni Rembor
 
