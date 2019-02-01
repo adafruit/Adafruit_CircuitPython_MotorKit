@@ -6,8 +6,8 @@ import time
 import atexit
 import threading
 import random
-from adafruit_motorkit import MotorKit
 from adafruit_motor import stepper as STEPPER
+from adafruit_motorkit import MotorKit
 
 # create a default object, no changes to I2C address or frequency
 kit = MotorKit()
@@ -31,33 +31,39 @@ def stepper_worker(stepper, numsteps, direction, style):
         stepper.onestep(direction=direction, style=style)
     #print("Done")
 
-while (True):
+while True:
     if not st1.isAlive():
         randomdir = random.randint(0, 1)
-        print("Stepper 1"),
-        if (randomdir == 0):
-            dir = STEPPER.FORWARD
-            print("forward"),
+        print("Stepper 1")
+        if randomdir == 0:
+            direction = STEPPER.FORWARD
+            print("forward")
         else:
-            dir = STEPPER.BACKWARD
-            print("backward"),
+            direction = STEPPER.BACKWARD
+            print("backward")
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
-        st1 = threading.Thread(target=stepper_worker, args=(kit.stepper1, randomsteps, dir, stepstyles[random.randint(0,3)],))
+        st1 = threading.Thread(target=stepper_worker, args=(kit.stepper1,
+                                                            randomsteps,
+                                                            direction,
+                                                            stepstyles[random.randint(0,3)],))
         st1.start()
 
     if not st2.isAlive():
-        print("Stepper 2"),
+        print("Stepper 2")
         randomdir = random.randint(0, 1)
-        if (randomdir == 0):
-            dir = STEPPER.FORWARD
-            print("forward"),
+        if randomdir == 0:
+            direction = STEPPER.FORWARD
+            print("forward")
         else:
-            dir = STEPPER.BACKWARD
-            print("backward"),
+            direction = STEPPER.BACKWARD
+            print("backward")
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
-        st2 = threading.Thread(target=stepper_worker, args=(kit.stepper2, randomsteps, dir, stepstyles[random.randint(0,3)],))
+        st2 = threading.Thread(target=stepper_worker, args=(kit.stepper2,
+                                                            randomsteps,
+                                                            direction,
+                                                            stepstyles[random.randint(0,3)],))
         st2.start()
 
     time.sleep(0.1) # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
