@@ -66,4 +66,5 @@ while True:
                                                             stepstyles[random.randint(0,3)],))
         st2.start()
 
-    time.sleep(0.1) # Small delay to stop from constantly polling threads (see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733)
+    time.sleep(0.1) # Small delay to stop from constantly polling threads
+                    # see: https://forums.adafruit.com/viewtopic.php?f=50&t=104354&p=562733#p562733
