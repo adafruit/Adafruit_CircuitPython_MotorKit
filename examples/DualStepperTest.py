@@ -36,16 +36,16 @@ while True:
         randomdir = random.randint(0, 1)
         print("Stepper 1")
         if randomdir == 0:
-            direction = STEPPER.FORWARD
+            move_dir = STEPPER.FORWARD
             print("forward")
         else:
-            direction = STEPPER.BACKWARD
+            move_dir = STEPPER.BACKWARD
             print("backward")
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
         st1 = threading.Thread(target=stepper_worker, args=(kit.stepper1,
                                                             randomsteps,
-                                                            direction,
+                                                            move_dir,
                                                             stepstyles[random.randint(0,3)],))
         st1.start()
 
@@ -53,16 +53,16 @@ while True:
         print("Stepper 2")
         randomdir = random.randint(0, 1)
         if randomdir == 0:
-            direction = STEPPER.FORWARD
+            move_dir = STEPPER.FORWARD
             print("forward")
         else:
-            direction = STEPPER.BACKWARD
+            move_dir = STEPPER.BACKWARD
             print("backward")
         randomsteps = random.randint(10,50)
         print("%d steps" % randomsteps)
         st2 = threading.Thread(target=stepper_worker, args=(kit.stepper2,
                                                             randomsteps,
-                                                            direction,
+                                                            move_dir,
                                                             stepstyles[random.randint(0,3)],))
         st2.start()
 
