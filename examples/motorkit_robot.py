@@ -15,7 +15,8 @@ from adafruit_motorkit import MotorKit
 
 kit = MotorKit()
 
-class Robot(object):
+
+class Robot:
     def __init__(self, left_trim=0, right_trim=0, stop_at_exit=True):
         """Create an instance of the robot.  Can specify the following optional
         parameter
@@ -90,7 +91,6 @@ class Robot(object):
         if seconds is not None:
             time.sleep(seconds)
             self.stop()
-
 
     def right(self, speed, seconds=None):
         """Spin to the right at the specified speed.  Will start spinning and

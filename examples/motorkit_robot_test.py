@@ -18,8 +18,8 @@ import Robot
 # motor.  Likewise if it veers right then adjust the _left_ motor trim to a small
 # negative value.  Increase or decrease the trim value until the bot moves
 # straight forward/backward.
-LEFT_TRIM   = 0
-RIGHT_TRIM  = 0
+LEFT_TRIM = 0
+RIGHT_TRIM = 0
 
 
 # Create an instance of the robot with the specified trim values.
@@ -36,9 +36,9 @@ robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 #                     is optional and if not specified the robot will start moving
 #                     forever.
 
-robot.left(0.5,1)
-robot.right(0.5,1)
-robot.steer(0.5,0.2)
+robot.left(0.5, 1)
+robot.right(0.5, 1)
+robot.steer(0.5, 0.2)
 time.sleep(3)
 robot.stop()      # Stop the robot from moving.
 
