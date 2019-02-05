@@ -1,5 +1,5 @@
-from adafruit_motorkit import MotorKit
 from adafruit_motor import stepper
+from adafruit_motorkit import MotorKit
 
 kit = MotorKit()
 
