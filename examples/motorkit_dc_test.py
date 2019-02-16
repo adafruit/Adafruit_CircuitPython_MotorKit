@@ -17,7 +17,7 @@ while True:
         time.sleep(0.01)
 
     print("Slow down...")
-    for i in reversed(range(0, 100)):
+    for i in range(100, 0, -1)):
         speed = i * 0.01
         kit.motor1.throttle = speed
         time.sleep(0.01)
@@ -27,13 +27,13 @@ while True:
     time.sleep(1)
 
     print("Speed up...")
-    for i in range(-100, 0):
+    for i in range(0, -100, -1):
         speed = i * 0.01
         kit.motor1.throttle = speed
         time.sleep(0.01)
 
     print("Slow down...")
-    for i in reversed(range(-100, 0)):
+    for i in range(-100, 0):
         speed = i * 0.01
         kit.motor1.throttle = speed
         time.sleep(0.01)
