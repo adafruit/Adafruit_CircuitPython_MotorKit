@@ -51,28 +51,27 @@ Implementation Notes
 
 """
 
-# imports
+
+import board
+from adafruit_pca9685 import PCA9685
 
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MotorKit.git"
-
-import board
-import busio
-from adafruit_pca9685 import PCA9685
 
 
 class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
        Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi."""
-    def __init__(self, address=0x60):
+    def __init__(self, address=0x60, i2c=None):
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
         self._motor4 = None
         self._stepper1 = None
         self._stepper2 = None
-        i2c = busio.I2C(board.SCL, board.SDA)
+        if i2c is None:
+            i2c = board.I2C()
         self._pca = PCA9685(i2c, address=address)
         self._pca.frequency = 1600
 
