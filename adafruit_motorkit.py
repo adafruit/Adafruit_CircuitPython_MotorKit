@@ -63,7 +63,7 @@ class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
        Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi."""
-    def __init__(self, address=0x60, i2c=None, stepper_microsteps=16):
+    def __init__(self, address=0x60, i2c=None, steppers_microsteps=16):
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
@@ -74,7 +74,7 @@ class MotorKit:
             i2c = board.I2C()
         self._pca = PCA9685(i2c, address=address)
         self._pca.frequency = 1600
-        self.stepper_microsteps = stepper_microsteps
+        self._steppers_microsteps = steppers_microsteps
 
     # We can save memory usage (~300 bytes) by deduplicating the construction of the objects for
     # each motor. This saves both code size and the number of raw strings (the error message)
@@ -229,7 +229,7 @@ class MotorKit:
             self._pca.channels[13].duty_cycle = 0xffff
             self._stepper1 = stepper.StepperMotor(self._pca.channels[10], self._pca.channels[9],
                                                   self._pca.channels[11], self._pca.channels[12],
-                                                  microsteps=self.stepper_microsteps)
+                                                  microsteps=self._steppers_microsteps)
         return self._stepper1
 
     @property
@@ -264,5 +264,5 @@ class MotorKit:
             self._pca.channels[2].duty_cycle = 0xffff
             self._stepper2 = stepper.StepperMotor(self._pca.channels[4], self._pca.channels[3],
                                                   self._pca.channels[5], self._pca.channels[6],
-                                                  microsteps=self.stepper_microsteps)
+                                                  microsteps=self._steppers_microsteps)
         return self._stepper2
