@@ -1,6 +1,6 @@
 """Simple test for using adafruit_motorkit with a stepper motor"""
-from adafruit_motorkit import MotorKit
 import time
+from adafruit_motorkit import MotorKit
 
 kit = MotorKit()
 
