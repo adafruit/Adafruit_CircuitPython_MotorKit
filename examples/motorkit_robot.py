@@ -1,3 +1,7 @@
+#
+# NOTE - Only for use on Raspberry Pi or other SBC.
+#
+
 # Simple two DC motor robot class.  Exposes a simple LOGO turtle-like API for
 # moving a robot forward, backward, and turning.  See RobotTest.py for an
 # example of using this class.
