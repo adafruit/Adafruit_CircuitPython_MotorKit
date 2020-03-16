@@ -40,7 +40,7 @@ robot.left(0.5, 1)
 robot.right(0.5, 1)
 robot.steer(0.5, 0.2)
 time.sleep(3)
-robot.stop()      # Stop the robot from moving.
+robot.stop()  # Stop the robot from moving.
 
 
 # That's it!  Note that on exit the robot will automatically stop moving.
