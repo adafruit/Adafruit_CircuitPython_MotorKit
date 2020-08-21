@@ -62,7 +62,10 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MotorKit.git"
 class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
-       Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi."""
+       Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi if no I2C bus
+       is supplied.
+
+       Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
 
     def __init__(self, address=0x60, i2c=None, steppers_microsteps=16):
         self._motor1 = None

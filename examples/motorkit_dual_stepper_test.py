@@ -6,11 +6,12 @@ import time
 import atexit
 import threading
 import random
+import board
 from adafruit_motor import stepper as STEPPER
 from adafruit_motorkit import MotorKit
 
 # create a default object, no changes to I2C address or frequency
-kit = MotorKit()
+kit = MotorKit(i2c=board.I2C())
 
 # create empty threads (these will hold the stepper 1 and 2 threads)
 st1 = threading.Thread()  # pylint: disable=bad-thread-instantiation

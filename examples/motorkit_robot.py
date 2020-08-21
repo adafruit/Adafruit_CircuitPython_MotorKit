@@ -14,9 +14,10 @@
 
 import time
 import atexit
+import board
 from adafruit_motorkit import MotorKit
 
-kit = MotorKit()
+kit = MotorKit(i2c=board.I2C())
 
 
 class Robot:
