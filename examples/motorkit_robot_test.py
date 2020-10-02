@@ -3,8 +3,8 @@
 # License: MIT License https://opensource.org/licenses/MIT
 import time
 
-# Import the Robot.py file (must be in the same directory as this file!).
-import Robot
+# Import the motorkit_robot.py file (must be in the same directory as this file!).
+import motorkit_robot
 
 
 # Set the trim offset for each motor (left and right).  This is a value that
@@ -24,7 +24,7 @@ RIGHT_TRIM = 0
 
 # Create an instance of the robot with the specified trim values.
 
-robot = Robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
+robot = motorkit_robot.Robot(left_trim=LEFT_TRIM, right_trim=RIGHT_TRIM)
 
 # Now move the robot around!
 # Each call below takes two parameters:
@@ -44,3 +44,4 @@ robot.stop()  # Stop the robot from moving.
 
 
 # That's it!  Note that on exit the robot will automatically stop moving.
+
