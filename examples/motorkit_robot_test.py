@@ -44,4 +44,3 @@ robot.stop()  # Stop the robot from moving.
 
 
 # That's it!  Note that on exit the robot will automatically stop moving.
-
