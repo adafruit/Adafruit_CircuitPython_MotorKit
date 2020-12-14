@@ -67,7 +67,7 @@ class MotorKit:
 
        Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
 
-    def __init__(self, address=0x60, i2c=None, steppers_microsteps=16):
+    def __init__(self, address=0x60, i2c=None, steppers_microsteps=16, pwm_frequency=1600):
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
@@ -77,7 +77,7 @@ class MotorKit:
         if i2c is None:
             i2c = board.I2C()
         self._pca = PCA9685(i2c, address=address)
-        self._pca.frequency = 1600
+        self._pca.frequency = pwm_frequency
         self._steppers_microsteps = steppers_microsteps
 
     # We can save memory usage (~300 bytes) by deduplicating the construction of the objects for
@@ -296,3 +296,12 @@ class MotorKit:
                 microsteps=self._steppers_microsteps,
             )
         return self._stepper2
+   
+    @property
+    def frequency(self):
+        """The overall PCA9685 PWM frequency in Hertz."""
+        return self._pca.frequency
+
+    @frequency.setter
+    def frequency(self, pwm_frequency=1600):
+        self._pca.frequency = pwm_frequency
