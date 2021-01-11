@@ -51,7 +51,6 @@ Implementation Notes
 
 """
 
-
 import board
 from adafruit_pca9685 import PCA9685
 
@@ -67,7 +66,9 @@ class MotorKit:
 
        Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
 
-    def __init__(self, address=0x60, i2c=None, steppers_microsteps=16, pwm_frequency=1600):
+    def __init__(
+        self, address=0x60, i2c=None, steppers_microsteps=16, pwm_frequency=1600
+    ):
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
@@ -299,10 +300,9 @@ class MotorKit:
 
     @property
     def frequency(self):
-        """The overall PWM frequency in Hertz."""
+        """The overall PCA9685 PWM frequency in Hertz."""
         return self._pca.frequency
-   
+
     @frequency.setter
     def frequency(self, pwm_frequency=1600):
         self._pca.frequency = pwm_frequency
-
