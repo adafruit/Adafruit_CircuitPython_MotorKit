@@ -1,25 +1,8 @@
-# The MIT License (MIT)
+# SPDX-FileCopyrightText: 2017 Scott Shawcroft for Adafruit Industries
+# SPDX-FileCopyrightText: 2018 Kattni Rembor for Adafruit Industries
 #
-# Copyright (c) 2017 Scott Shawcroft for Adafruit Industries
-# Copyright (c) 2018 Kattni Rembor for Adafruit Industries
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-# THE SOFTWARE.
+# SPDX-License-Identifier: MIT
+
 """
 `adafruit_motorkit`
 ====================================================
@@ -61,10 +44,10 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MotorKit.git"
 class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
-       Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi if no I2C bus
-       is supplied.
+    Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi if no I2C bus
+    is supplied.
 
-       Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
+    Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
 
     def __init__(
         self, address=0x60, i2c=None, steppers_microsteps=16, pwm_frequency=1600
@@ -110,26 +93,26 @@ class MotorKit:
     def motor1(self):
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 1.
 
-            The following image shows the location of the M1 terminal on the DC/Stepper FeatherWing.
-            The label on the FeatherWing is found on the bottom of the board.
-            The terminal is labeled on the top of the Shield and Pi Hat.
+        The following image shows the location of the M1 terminal on the DC/Stepper FeatherWing.
+        The label on the FeatherWing is found on the bottom of the board.
+        The terminal is labeled on the top of the Shield and Pi Hat.
 
-            .. image :: ../docs/_static/motor_featherwing/m1.jpg
-              :alt: Motor 1 location
+        .. image :: ../docs/_static/motor_featherwing/m1.jpg
+          :alt: Motor 1 location
 
-            This example moves the motor forwards for one fifth of a second at full speed.
+        This example moves the motor forwards for one fifth of a second at full speed.
 
-            .. code-block:: python
+        .. code-block:: python
 
-                import time
-                from adafruit_motorkit import motorkit
+            import time
+            from adafruit_motorkit import motorkit
 
-                kit = MotorKit()
+            kit = MotorKit()
 
-                kit.motor1.throttle = 1.0
-                time.sleep(0.2)
+            kit.motor1.throttle = 1.0
+            time.sleep(0.2)
 
-                kit.motor1.throttle = 0
+            kit.motor1.throttle = 0
         """
         return self._motor(1, (8, 9, 10), 1)
 
@@ -137,26 +120,26 @@ class MotorKit:
     def motor2(self):
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 2.
 
-            The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
-            The label on the FeatherWing is found on the bottom of the board.
-            The terminal is labeled on the top of the Shield and Pi Hat.
+        The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
+        The label on the FeatherWing is found on the bottom of the board.
+        The terminal is labeled on the top of the Shield and Pi Hat.
 
-            .. image :: ../docs/_static/motor_featherwing/m2.jpg
-              :alt: Motor 2 location
+        .. image :: ../docs/_static/motor_featherwing/m2.jpg
+          :alt: Motor 2 location
 
-            This example moves the motor forwards for one fifth of a second at full speed.
+        This example moves the motor forwards for one fifth of a second at full speed.
 
-            .. code-block:: python
+        .. code-block:: python
 
-                import time
-                from adafruit_motorkit import motorkit
+            import time
+            from adafruit_motorkit import motorkit
 
-                kit = MotorKit()
+            kit = MotorKit()
 
-                kit.motor2.throttle = 1.0
-                time.sleep(0.2)
+            kit.motor2.throttle = 1.0
+            time.sleep(0.2)
 
-                kit.motor1.throttle = 0
+            kit.motor1.throttle = 0
         """
         return self._motor(2, (13, 11, 12), 1)
 
@@ -164,26 +147,26 @@ class MotorKit:
     def motor3(self):
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 3.
 
-            The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
-            The label on the FeatherWing is found on the bottom of the board.
-            The terminal is labeled on the top of the Shield and Pi Hat.
+        The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
+        The label on the FeatherWing is found on the bottom of the board.
+        The terminal is labeled on the top of the Shield and Pi Hat.
 
-            .. image :: ../docs/_static/motor_featherwing/m3.jpg
-              :alt: Motor 3 location
+        .. image :: ../docs/_static/motor_featherwing/m3.jpg
+          :alt: Motor 3 location
 
-            This example moves the motor forwards for one fifth of a second at full speed.
+        This example moves the motor forwards for one fifth of a second at full speed.
 
-            .. code-block:: python
+        .. code-block:: python
 
-                import time
-                from adafruit_motorkit import motorkit
+            import time
+            from adafruit_motorkit import motorkit
 
-                kit = MotorKit()
+            kit = MotorKit()
 
-                kit.motor3.throttle = 1.0
-                time.sleep(0.2)
+            kit.motor3.throttle = 1.0
+            time.sleep(0.2)
 
-                kit.motor1.throttle = 0
+            kit.motor1.throttle = 0
         """
         return self._motor(3, (2, 3, 4), 2)
 
@@ -191,48 +174,48 @@ class MotorKit:
     def motor4(self):
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 4.
 
-            .. image :: ../docs/_static/motor_featherwing/m4.jpg
-              :alt: Motor 4 location
+        .. image :: ../docs/_static/motor_featherwing/m4.jpg
+          :alt: Motor 4 location
 
-            This example moves the motor forwards for one fifth of a second at full speed.
+        This example moves the motor forwards for one fifth of a second at full speed.
 
-            .. code-block:: python
+        .. code-block:: python
 
-                import time
-                from adafruit_motorkit import motorkit
+            import time
+            from adafruit_motorkit import motorkit
 
-                kit = MotorKit()
+            kit = MotorKit()
 
-                kit.motor4.throttle = 1.0
-                time.sleep(0.2)
+            kit.motor4.throttle = 1.0
+            time.sleep(0.2)
 
-                kit.motor1.throttle = 0
+            kit.motor1.throttle = 0
         """
         return self._motor(4, (7, 5, 6), 2)
 
     @property
     def stepper1(self):
         """:py:class:``~adafruit_motor.stepper.StepperMotor`` controls for one connected to stepper
-           1 (also labeled motor 1 and motor 2).
+        1 (also labeled motor 1 and motor 2).
 
-            The following image shows the location of the stepper1 terminals on the DC/Stepper
-            FeatherWing. stepper1 is made up of the M1 and M2 terminals.
-            The labels on the FeatherWing are found on the bottom of the board.
-            The terminals are labeled on the top of the Shield and Pi Hat.
+         The following image shows the location of the stepper1 terminals on the DC/Stepper
+         FeatherWing. stepper1 is made up of the M1 and M2 terminals.
+         The labels on the FeatherWing are found on the bottom of the board.
+         The terminals are labeled on the top of the Shield and Pi Hat.
 
-            .. image :: ../docs/_static/motor_featherwing/stepper1.jpg
-              :alt: Stepper 1 location
+         .. image :: ../docs/_static/motor_featherwing/stepper1.jpg
+           :alt: Stepper 1 location
 
-            This example moves the stepper motor 100 steps forwards.
+         This example moves the stepper motor 100 steps forwards.
 
-            .. code-block:: python
+         .. code-block:: python
 
-                from adafruit_motorkit import MotorKit
+             from adafruit_motorkit import MotorKit
 
-                kit = MotorKit()
+             kit = MotorKit()
 
-                for i in range(100):
-                    kit.stepper1.onestep()
+             for i in range(100):
+                 kit.stepper1.onestep()
         """
         if not self._stepper1:
             from adafruit_motor import (  # pylint: disable=import-outside-toplevel
@@ -257,26 +240,26 @@ class MotorKit:
     @property
     def stepper2(self):
         """:py:class:``~adafruit_motor.stepper.StepperMotor`` controls for one connected to stepper
-           2 (also labeled motor 3 and motor 4).
+        2 (also labeled motor 3 and motor 4).
 
-            The following image shows the location of the stepper2 terminals on the DC/Stepper
-            FeatherWing. stepper2 is made up of the M3 and M4 terminals.
-            The labels on the FeatherWing are found on the bottom of the board.
-            The terminals are labeled on the top of the Shield and Pi Hat.
+         The following image shows the location of the stepper2 terminals on the DC/Stepper
+         FeatherWing. stepper2 is made up of the M3 and M4 terminals.
+         The labels on the FeatherWing are found on the bottom of the board.
+         The terminals are labeled on the top of the Shield and Pi Hat.
 
-            .. image :: ../docs/_static/motor_featherwing/stepper2.jpg
-              :alt: Stepper 2 location
+         .. image :: ../docs/_static/motor_featherwing/stepper2.jpg
+           :alt: Stepper 2 location
 
-            This example moves the stepper motor 100 steps forwards.
+         This example moves the stepper motor 100 steps forwards.
 
-            .. code-block:: python
+         .. code-block:: python
 
-                from adafruit_motorkit import MotorKit
+             from adafruit_motorkit import MotorKit
 
-                kit = MotorKit()
+             kit = MotorKit()
 
-                for i in range(100):
-                    kit.stepper2.onestep()
+             for i in range(100):
+                 kit.stepper2.onestep()
         """
         if not self._stepper2:
             from adafruit_motor import (  # pylint: disable=import-outside-toplevel
