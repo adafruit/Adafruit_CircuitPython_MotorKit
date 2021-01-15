@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
 #!/usr/bin/python
 #
 # NOTE - Only for use on Raspberry Pi or other SBC.

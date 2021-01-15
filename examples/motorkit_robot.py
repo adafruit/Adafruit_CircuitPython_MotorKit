@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
 #
 # NOTE - Only for use on Raspberry Pi or other SBC.
 #
@@ -39,16 +42,14 @@ class Robot:
             atexit.register(self.stop)
 
     def _left_speed(self, speed):
-        """Set the speed of the left motor, taking into account its trim offset.
-        """
+        """Set the speed of the left motor, taking into account its trim offset."""
         assert -1 <= speed <= 1, "Speed must be a value between -1 to 1 inclusive!"
         speed += self._left_trim
         speed = max(-1, min(1, speed))  # Constrain speed to 0-255 after trimming.
         kit.motor1.throttle = speed
 
     def _right_speed(self, speed):
-        """Set the speed of the right motor, taking into account its trim offset.
-        """
+        """Set the speed of the right motor, taking into account its trim offset."""
         assert -1 <= speed <= 1, "Speed must be a value between -1 to 1 inclusive!"
         speed += self._right_trim
         speed = max(-1, min(1, speed))  # Constrain speed to 0-255 after trimming.

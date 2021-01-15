@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
+# SPDX-License-Identifier: MIT
+
 # Simple two DC motor robot class usage example.
 # Author: Tony DiCola, Chris Anderron
 # License: MIT License https://opensource.org/licenses/MIT
