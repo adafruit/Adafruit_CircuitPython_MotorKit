@@ -82,6 +82,11 @@ Stepper motor example:
     for i in range(100):
         kit.stepper1.onestep()
 
+Documentation
+=============
+
+API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/motorkit/en/latest/>`_.
+
 Contributing
 ============
 
