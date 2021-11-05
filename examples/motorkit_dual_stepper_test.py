@@ -40,7 +40,7 @@ def stepper_worker(stepper, numsteps, direction, style):
 
 
 while True:
-    if not st1.isAlive():
+    if not st1.is_alive():
         randomdir = random.randint(0, 1)
         print("Stepper 1")
         if randomdir == 0:
@@ -62,7 +62,7 @@ while True:
         )
         st1.start()
 
-    if not st2.isAlive():
+    if not st2.is_alive():
         print("Stepper 2")
         randomdir = random.randint(0, 1)
         if randomdir == 0:
