@@ -2,7 +2,7 @@ Introduction
 ============
 
 .. image:: https://readthedocs.org/projects/adafruit-circuitpython-motorkit/badge/?version=latest
-    :target: https://circuitpython.readthedocs.io/projects/motorkit/en/latest/
+    :target: https://docs.circuitpython.org/projects/motorkit/en/latest/
     :alt: Documentation Status
 
 .. image:: https://img.shields.io/discord/327254708534116352.svg
@@ -85,7 +85,7 @@ Stepper motor example:
 Documentation
 =============
 
-API documentation for this library can be found on `Read the Docs <https://circuitpython.readthedocs.io/projects/motorkit/en/latest/>`_.
+API documentation for this library can be found on `Read the Docs <https://docs.circuitpython.org/projects/motorkit/en/latest/>`_.
 
 Contributing
 ============
