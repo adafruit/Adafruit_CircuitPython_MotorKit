@@ -40,7 +40,7 @@ from adafruit_pca9685 import PCA9685
 try:
     from typing import Optional, Tuple
     from busio import I2C
-    import adafruit_motor
+    import adafruit_motor.motor
 except ImportError:
     pass
 
