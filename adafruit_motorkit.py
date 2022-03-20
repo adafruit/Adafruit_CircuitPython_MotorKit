@@ -41,6 +41,7 @@ try:
     from typing import Optional, Tuple
     from busio import I2C
     import adafruit_motor.motor
+    import adafruit_motor.stepper
 except ImportError:
     pass
 
