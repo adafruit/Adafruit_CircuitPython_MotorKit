@@ -62,7 +62,7 @@ class MotorKit:
         address: int = 0x60,
         i2c: Optional[I2C] = None,
         steppers_microsteps: int = 16,
-        pwm_frequency: float = 1600,
+        pwm_frequency: float = 1600.0,
     ) -> None:
         self._motor1 = None
         self._motor2 = None
@@ -301,5 +301,5 @@ class MotorKit:
         return self._pca.frequency
 
     @frequency.setter
-    def frequency(self, pwm_frequency: float = 1600) -> None:
+    def frequency(self, pwm_frequency: float = 1600.0) -> None:
         self._pca.frequency = pwm_frequency
