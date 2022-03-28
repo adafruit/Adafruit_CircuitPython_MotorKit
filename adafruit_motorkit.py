@@ -37,6 +37,14 @@ Implementation Notes
 import board
 from adafruit_pca9685 import PCA9685
 
+try:
+    from typing import Optional, Tuple
+    from busio import I2C
+    import adafruit_motor.motor
+    import adafruit_motor.stepper
+except ImportError:
+    pass
+
 __version__ = "0.0.0-auto.0"
 __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MotorKit.git"
 
@@ -50,8 +58,12 @@ class MotorKit:
     Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
 
     def __init__(
-        self, address=0x60, i2c=None, steppers_microsteps=16, pwm_frequency=1600
-    ):
+        self,
+        address: int = 0x60,
+        i2c: Optional[I2C] = None,
+        steppers_microsteps: int = 16,
+        pwm_frequency: float = 1600.0,
+    ) -> None:
         self._motor1 = None
         self._motor2 = None
         self._motor3 = None
@@ -67,7 +79,9 @@ class MotorKit:
     # We can save memory usage (~300 bytes) by deduplicating the construction of the objects for
     # each motor. This saves both code size and the number of raw strings (the error message)
     # stored. The same technique is a net loss for stepper because there is less duplication.
-    def _motor(self, motor_name, channels, stepper_name):
+    def _motor(
+        self, motor_name: int, channels: Tuple[int, int, int], stepper_name: int
+    ) -> adafruit_motor.motor.DCMotor:
         from adafruit_motor import motor  # pylint: disable=import-outside-toplevel
 
         motor_name = "_motor" + str(motor_name)
@@ -90,7 +104,7 @@ class MotorKit:
         return getattr(self, motor_name)
 
     @property
-    def motor1(self):
+    def motor1(self) -> adafruit_motor.motor.DCMotor:
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 1.
 
         The following image shows the location of the M1 terminal on the DC/Stepper FeatherWing.
@@ -117,7 +131,7 @@ class MotorKit:
         return self._motor(1, (8, 9, 10), 1)
 
     @property
-    def motor2(self):
+    def motor2(self) -> adafruit_motor.motor.DCMotor:
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 2.
 
         The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
@@ -144,7 +158,7 @@ class MotorKit:
         return self._motor(2, (13, 11, 12), 1)
 
     @property
-    def motor3(self):
+    def motor3(self) -> adafruit_motor.motor.DCMotor:
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 3.
 
         The following image shows the location of the M2 terminal on the DC/Stepper FeatherWing.
@@ -171,7 +185,7 @@ class MotorKit:
         return self._motor(3, (2, 3, 4), 2)
 
     @property
-    def motor4(self):
+    def motor4(self) -> adafruit_motor.motor.DCMotor:
         """:py:class:``~adafruit_motor.motor.DCMotor`` controls for motor 4.
 
         .. image :: ../docs/_static/motor_featherwing/m4.jpg
@@ -194,7 +208,7 @@ class MotorKit:
         return self._motor(4, (7, 5, 6), 2)
 
     @property
-    def stepper1(self):
+    def stepper1(self) -> adafruit_motor.stepper.StepperMotor:
         """:py:class:``~adafruit_motor.stepper.StepperMotor`` controls for one connected to stepper
         1 (also labeled motor 1 and motor 2).
 
@@ -238,7 +252,7 @@ class MotorKit:
         return self._stepper1
 
     @property
-    def stepper2(self):
+    def stepper2(self) -> adafruit_motor.stepper.StepperMotor:
         """:py:class:``~adafruit_motor.stepper.StepperMotor`` controls for one connected to stepper
         2 (also labeled motor 3 and motor 4).
 
@@ -282,10 +296,10 @@ class MotorKit:
         return self._stepper2
 
     @property
-    def frequency(self):
+    def frequency(self) -> float:
         """The overall PCA9685 PWM frequency in Hertz."""
         return self._pca.frequency
 
     @frequency.setter
-    def frequency(self, pwm_frequency=1600):
+    def frequency(self, pwm_frequency: float = 1600.0) -> None:
         self._pca.frequency = pwm_frequency
