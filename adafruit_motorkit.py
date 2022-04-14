@@ -16,11 +16,10 @@ Implementation Notes
 
 **Hardware:**
 
-   "* `DC Motor + Stepper FeatherWing <https://www.adafruit.com/product/2927>`_"
-   "* `Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit
-   <https://www.adafruit.com/product/1438>`_"
-   "* `Adafruit DC & Stepper Motor HAT for Raspberry Pi - Mini Kit
-   <https://www.adafruit.com/product/2348>`_"
+* `DC Motor + Stepper FeatherWing <https://www.adafruit.com/product/2927>`_
+* `Adafruit Motor/Stepper/Servo Shield for Arduino v2 Kit <https://www.adafruit.com/product/1438>`_
+* `Adafruit DC & Stepper Motor HAT for Raspberry Pi - Mini Kit
+  <https://www.adafruit.com/product/2348>`_
 
 **Software and Dependencies:**
 
@@ -52,10 +51,18 @@ __repo__ = "https://github.com/adafruit/Adafruit_CircuitPython_MotorKit.git"
 class MotorKit:
     """Class representing an Adafruit DC & Stepper Motor FeatherWing, Shield or Pi Hat kit.
 
-    Automatically uses the I2C bus on a Feather, Metro or Raspberry Pi if no I2C bus
-    is supplied.
+    :param int address: I2C address of PCA9685 PWM controller. Default address is ``0x60``.
+    :param busio.I2C i2c: I2C bus object to use. If not specified, use ``board.I2C()``.
 
-    Alternately, if using with multiple I2C devices, you can specify the I2C bus."""
+      .. note::
+        ``board.I2C()`` uses the default I2C bus frequency of 100 kHz. To speed up
+        motor control, use an I2C bus frequency of 400 KHz, or if available, 1 MHz.
+        The PCA9685 controller supports both of these higher speeds.
+        This will noticeably speed up stepper motor operation when many steps are requested.
+
+    :param int steppers_microsteps: Number of microsteps per step for stepper motors. Default is 16.
+    :param float pwm_frequency: defaults to 1600 Hz
+    """
 
     def __init__(
         self,
