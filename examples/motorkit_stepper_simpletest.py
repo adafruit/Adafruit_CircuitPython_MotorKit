@@ -2,8 +2,11 @@
 # SPDX-License-Identifier: MIT
 
 """Simple test for using adafruit_motorkit with a stepper motor"""
+
 import time
+
 import board
+
 from adafruit_motorkit import MotorKit
 
 kit = MotorKit(i2c=board.I2C())

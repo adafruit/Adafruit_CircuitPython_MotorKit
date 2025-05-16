@@ -5,20 +5,22 @@
 #
 # NOTE - Only for use on Raspberry Pi or other SBC.
 #
-import time
 import atexit
-import threading
 import random
+import threading
+import time
+
 import board
 from adafruit_motor import stepper as STEPPER
+
 from adafruit_motorkit import MotorKit
 
 # create a default object, no changes to I2C address or frequency
 kit = MotorKit(i2c=board.I2C())
 
 # create empty threads (these will hold the stepper 1 and 2 threads)
-st1 = threading.Thread()  # pylint: disable=bad-thread-instantiation
-st2 = threading.Thread()  # pylint: disable=bad-thread-instantiation
+st1 = threading.Thread()
+st2 = threading.Thread()
 
 
 # recommended for auto-disabling motors on shutdown!
