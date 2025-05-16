@@ -15,9 +15,11 @@
 # This assumes the Left motor is on Motor 1 and the Right motor is on Motor 2
 
 
-import time
 import atexit
+import time
+
 import board
+
 from adafruit_motorkit import MotorKit
 
 kit = MotorKit(i2c=board.I2C())
@@ -78,9 +80,7 @@ class Robot:
         # Move forward at the specified speed (0- 1).  Direction is +- 1.
         # Full left is -1, Full right is +1
         if (speed + direction / 2) > 1:
-            speed = (
-                speed - direction / 2
-            )  # calibrate so total motor output never goes above 1
+            speed = speed - direction / 2  # calibrate so total motor output never goes above 1
         left = speed + direction / 2
         right = speed - direction / 2
         self._left_speed(left)

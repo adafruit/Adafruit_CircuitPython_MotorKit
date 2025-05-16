@@ -38,9 +38,10 @@ from adafruit_pca9685 import PCA9685
 
 try:
     from typing import Optional, Tuple
-    from busio import I2C
+
     import adafruit_motor.motor
     import adafruit_motor.stepper
+    from busio import I2C
 except ImportError:
     pass
 
@@ -89,24 +90,20 @@ class MotorKit:
     def _motor(
         self, motor_name: int, channels: Tuple[int, int, int], stepper_name: int
     ) -> adafruit_motor.motor.DCMotor:
-        from adafruit_motor import motor  # pylint: disable=import-outside-toplevel
+        from adafruit_motor import motor
 
         motor_name = "_motor" + str(motor_name)
         stepper_name = "_stepper" + str(stepper_name)
         if not getattr(self, motor_name):
             if getattr(self, stepper_name):
                 raise RuntimeError(
-                    "Cannot use {} at the same time as {}.".format(
-                        motor_name[1:], stepper_name[1:]
-                    )
+                    f"Cannot use {motor_name[1:]} at the same time as {stepper_name[1:]}."
                 )
             self._pca.channels[channels[0]].duty_cycle = 0xFFFF
             setattr(
                 self,
                 motor_name,
-                motor.DCMotor(
-                    self._pca.channels[channels[1]], self._pca.channels[channels[2]]
-                ),
+                motor.DCMotor(self._pca.channels[channels[1]], self._pca.channels[channels[2]]),
             )
         return getattr(self, motor_name)
 
@@ -239,14 +236,12 @@ class MotorKit:
                  kit.stepper1.onestep()
         """
         if not self._stepper1:
-            from adafruit_motor import (  # pylint: disable=import-outside-toplevel
+            from adafruit_motor import (
                 stepper,
             )
 
             if self._motor1 or self._motor2:
-                raise RuntimeError(
-                    "Cannot use stepper1 at the same time as motor1 or motor2."
-                )
+                raise RuntimeError("Cannot use stepper1 at the same time as motor1 or motor2.")
             self._pca.channels[8].duty_cycle = 0xFFFF
             self._pca.channels[13].duty_cycle = 0xFFFF
             self._stepper1 = stepper.StepperMotor(
@@ -283,14 +278,12 @@ class MotorKit:
                  kit.stepper2.onestep()
         """
         if not self._stepper2:
-            from adafruit_motor import (  # pylint: disable=import-outside-toplevel
+            from adafruit_motor import (
                 stepper,
             )
 
             if self._motor3 or self._motor4:
-                raise RuntimeError(
-                    "Cannot use stepper2 at the same time as motor3 or motor4."
-                )
+                raise RuntimeError("Cannot use stepper2 at the same time as motor3 or motor4.")
             self._pca.channels[7].duty_cycle = 0xFFFF
             self._pca.channels[2].duty_cycle = 0xFFFF
             self._stepper2 = stepper.StepperMotor(
