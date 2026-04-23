@@ -52,7 +52,7 @@ while True:
             move_dir = STEPPER.BACKWARD
             print("backward")
         randomsteps = random.randint(10, 50)
-        print("%d steps" % randomsteps)
+        print(f"{randomsteps} steps")
         st1 = threading.Thread(
             target=stepper_worker,
             args=(
@@ -74,7 +74,7 @@ while True:
             move_dir = STEPPER.BACKWARD
             print("backward")
         randomsteps = random.randint(10, 50)
-        print("%d steps" % randomsteps)
+        print(f"{randomsteps} steps")
         st2 = threading.Thread(
             target=stepper_worker,
             args=(

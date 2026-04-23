@@ -80,7 +80,7 @@ class Robot:
         # Move forward at the specified speed (0- 1).  Direction is +- 1.
         # Full left is -1, Full right is +1
         if (speed + direction / 2) > 1:
-            speed = speed - direction / 2  # calibrate so total motor output never goes above 1
+            speed -= direction / 2  # calibrate so total motor output never goes above 1
         left = speed + direction / 2
         right = speed - direction / 2
         self._left_speed(left)
